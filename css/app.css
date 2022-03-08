@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+/* .menu {
+  width: 300px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  list-style: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transform: translateX(100%);
+  transition: 0.25s linear;
+}
+.menu.is-active {
+  transform: translateX(0);
+}
+
+.menu-link {
+  display: block;
+  padding: 20px 15px;
+  border-bottom: 1px solid #ccc;
+} */
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s linear;
+}
+.modal.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 50px 30px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  border-radius: 10px;
+  color: #999;
+  cursor: pointer;
+}
+.modal-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.modal-action {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 20px;
+}
+
+.modal-submit,
+.modal-cancel {
+  border: 0;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.modal-submit {
+  background-color: blue;
+  color: #fff;
+}
+
+/* Toggle */
+
+.menu {
+  width: 200px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  transform: translateX(100%);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: 0.25s ease;
+}
+.menu.is-show {
+  transform: translateX(0);
+}
+
+.menu-item {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+}
+.menu-link {
+  display: inline-block;
+  padding: 15px 20px;
+  color: #999;
+}
+
+.menu-icon {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.menu-icon i {
+  font-size: 30px;
+}

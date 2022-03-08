@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  display: block;
+  margin: 100px auto;
+  color: #3d6ef7;
+  width: max-content;
+  font-size: 30px;
+}
+
+.tooltip {
+  position: relative;
+}
+.tooltip-text {
+  position: fixed;
+  /* transform: translate(-50%, -100%); */
+  background-color: #3d6ef7;
+  border-radius: 20px;
+  padding: 15px 20px;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #3d6ef7;
+  /* border-top: 10px solid red; */
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+}

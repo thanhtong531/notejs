@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>note.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- Localstorage -->
+<p>-- Khi dung setItem =&gt; gia tri truyen vao phai la string =&gt; dung JSON.stringify
+=&gt; Ex: localStorage.setItem('todo_list',JSON.stringify(todoList));</p>
+<!-- Hoisting  -->
+<ul>
+<li>Cần khai báo biến trước khi gọi biến đó</li>
+<li>Let và const đều bị hoisting</li>
+<li>Var không bị hoisting có thể gọi biến var trước khi khai báo nó</li>
+</ul>
+<!-- Clousure -->
+<ul>
+<li>Function con có thể truy xuất tới scope của function cha.</li>
+</ul>
+<p>-Ex1:
+function sayHello(){
+let message = &quot;hi&quot;;
+function sayHi(){
+console.log(message);
+}</p>
+<pre><code>return sayHi;
+</code></pre>
+<p>}</p>
+<p>const hello = sayHello() //Lúc này hàm sayHi chưa được gọi vì return về một hàm
+hello() // Thế là hàm sayHi được được chạy</p>
+<p>-Ex2:
+function sayHello3(message){
+return function sayYourName(name){
+console.log(${message} ${name});
+}
+}</p>
+<p>const hello2 = sayHello3(&quot;Hi I am&quot;);
+hello2(&quot;Clousure&quot;);</p>
+<h1 id="date">Date</h1>
+<ul>
+<li>Lấy timestamp ta dùng hàm getTime();</li>
+<li>timestamp được tính bằng milisecond</li>
+<li>new Date(year,month,day,hour,minutes,second,milisecond)</li>
+<li>new Date(timestamp)</li>
+<li>new Date(date string);</li>
+<li>Tháng trong date bắt đầu từ 0-11</li>
+<li>Thứ trong tuần từ 0 -&gt; 6. 0 -&gt; Chủ nhật, 6 -&gt; Thứ 7</li>
+<li>Tháng là phải trừ đi 1</li>
+<li>Để lấy ngày tháng năm của VN
+vd: const now = new Date();
+now.toLocaleString(&quot;vi-VI&quot;); //In ra ngay thang nam cua VN</li>
+</ul>
+<h2 id="string">String</h2>
+<h1 id="slice">Slice</h1>
+<ul>
+<li>Hàm slice(startIndex,endIndex -1);</li>
+<li>Lấy từ phần từ startIndex -&gt; endIndex -1</li>
+</ul>
+<h1 id="splice">Splice</h1>
+<p>-Xoá hoặc thay thế phần tử gốc làm thay đổi mảng gốc</p>
+<ul>
+<li>
+<p>splice(startIndex); =&gt; Tương tự như slice(startIndex);</p>
+</li>
+<li>
+<p>splice(startIdx,countDelete);</p>
+</li>
+<li>
+<p>splice(startIdx,countDelete,item1,item2,itemN); //item1,item2,itemN là những giá trị sẽ thay thế</p>
+<p><img src="/screenshots/splice.png" alt="ScreenShot"></p>
+</li>
+</ul>
+<h1 id="sort">Sort</h1>
+<p>=&gt; Sắp xếp các giá trị theo bảng mã Unicode-16
+function sort((a,b)=&gt;{
+if(a&gt;b) return 1; //Tăng dần
+if(a&lt;b) return -1; // Giảm dần
+})</p>
+<h3 id="s%E1%BB%B1-kh%C3%A1c-nhau-gi%E1%BB%AFa-foreach-v%C3%A0-map">Sự khác nhau giữa forEach và map</h3>
+<h1 id="foreach-th%C3%AC-kh%C3%B4ng-return-th%C6%B0%E1%BB%9Dng-d%C3%B9ng-ch%E1%BA%A1y-trong-dom-kh%C3%B4ng-th%E1%BB%83-d%E1%BB%ABng">Foreach thì không return, thường dùng chạy trong DOM, không thể dừng</h1>
+<h1 id="map-th%C3%AC-tr%E1%BA%A3-v%E1%BB%81-m%E1%BB%99t-m%E1%BA%A3ng-m%E1%BB%9Bi-d%E1%BB%B1a-v%C3%A0o-m%E1%BA%A3ng-ban-%C4%91%E1%BA%A7u">Map thì trả về một mảng mới dựa vào mảng ban đầu</h1>
+<h3 id="s%E1%BB%B1-gi%E1%BB%91ng-nhau-gi%E1%BB%AFa-some-v%C3%A0-every-%C4%91%E1%BB%81u-tr%E1%BA%A3-v%E1%BB%81-boolean">Sự giống nhau giữa some và every (đều trả về boolean)</h3>
+<h1 id="%C4%91%E1%BB%83-so-s%C3%A1nh-2-m%E1%BA%A3ng-array-ta-d%C3%B9ng-jsonstringify-%C4%91%E1%BB%83-so-s%C3%A1nh-2-m%E1%BA%A3ng-%C4%91%C3%B3">Để so sánh 2 mảng [array] ta dùng JSON.stringify để so sánh 2 mảng đó</h1>
+<p><img src="/screenshots/code.png" alt="ScreenShot"></p>
+<h2 id="2-c%C3%A1ch-sao-ch%C3%A9p-m%E1%BA%A3ng-clone--d%C3%B9ng-slice--spread-operator-tenmang">2 cách sao chép mảng (clone) : dùng slice &amp; spread operator: [...tenmang]</h2>
+<h2 id="2-c%C3%A1ch-g%E1%BB%99p-m%E1%BA%A3ng--d%C3%B9ng-concat--spread-operator-mang1mang2mang3">2 cách gộp mảng : dùng concat &amp;&amp; spread operator [...mang1,...mang2,...mang3]</h2>
+<h1 id="destructuring-xyz--name-array--t%C6%B0%C6%A1ng-%E1%BB%A9ng-v%E1%BB%9Bi-t%E1%BB%ABng-gi%C3%A1-tr%E1%BB%8B-trong-array">Destructuring [x,y,z] = name array =&gt; tương ứng với từng giá trị trong array</h1>
+<h1 id="%C4%91%E1%BB%83-l%C3%A0m-ph%E1%BA%B3ng-m%E1%BA%A3ng-ta-d%C3%B9ng-flats%E1%BB%91-m%E1%BA%A3ng-con">Để làm phẳng mảng ta dùng flat(số mảng con)</h1>
+<p>-&gt; vd: flat(1) -&gt; làm phẳng 1 mảng con</p>
+<p><img src="/screenshots/destructuring.png" alt="ScreenShot"></p>
+<h2 id="c%C3%A1c-gi%C3%A1-tr%E1%BB%8B-falsy-l%C3%A0--0undefinenullnan%22%22false">Các giá trị falsy là : 0,undefine,null,NaN,&quot;&quot;,false;</h2>
+<h1 id="number">Number</h1>
+<p>-&gt; Math.sign(number) -&gt; number là số dương =&gt; = 1, nếu là số âm =&gt; = -1;</p>
+<ul>
+<li>VD: Math.sign(12) // 1</li>
+<li>VD: Math.sign(-12) // -1</li>
+</ul>
+<h3 id="object">[Object]</h3>
+<p>const student = {name:'Tong Nguyen',age:22,love:true,isDeveloper:true,hi: function(){console.log(&quot;Hi&quot;)}}</p>
+<h1 id="%C4%91%E1%BB%83-xo%C3%A1-key-trong-object-ta-d%C3%B9ng-ph%C6%B0%C6%A1ng-th%E1%BB%A9c-delete">Để xoá key trong object ta dùng phương thức delete</h1>
+<p>-&gt; delete student.name;</p>
+<h1 id="objectkeys-tr%E1%BA%A3-v%E1%BB%81-m%E1%BB%99t-m%E1%BA%A3ng-ch%E1%BB%A9a-c%C3%A1c-keys-c%E1%BB%A7a-object">Object.keys: trả về một mảng chứa các keys của object</h1>
+<h1 id="objectentries-tr%E1%BA%A3-v%E1%BB%81-m%E1%BB%99t-m%E1%BA%A3ng-nested-array-%22name%22%22tong-nguyen%22-g%E1%BB%93m-c%C3%B3-c%C3%A1c-c%E1%BA%B7p-key-v%C3%A0-value">Object.entries: trả về một mảng nested array [[&quot;name&quot;],[&quot;Tong Nguyen&quot;]] gồm có các cặp key và value</h1>
+<p><img src="/screenshots/object-entries.png" alt="ScreenShot"></p>
+<h1 id="objectassign-d%C3%B9ng-%C4%91%E1%BB%83-g%E1%BB%99p-nhi%E1%BB%81u-object-l%E1%BA%A1i-v%E1%BB%9Bi-nhau">Object.assign() dùng để gộp nhiều object lại với nhau</h1>
+<p><img src="/screenshots/object-assign.png" alt="ScreenShot"></p>
+<h1 id="objectfreezeobject-d%C3%B9ng-%C4%91%E1%BB%83-%C4%91%C3%B3ng-b%C4%83ng-key-v%C3%A0-value-c%E1%BB%A7a-object-kh%C3%B4ng-th%E1%BB%83-th%C3%AAm-key-v%C3%A0-value-m%E1%BB%9Bi-v%C3%A0o-object-%C4%91%C3%A3-%C4%91%C3%B3ng-b%C4%83ng">Object.freeze(object) dùng để đóng băng key và value của object không thể thêm key và value mới vào object đã đóng băng</h1>
+<p><img src="/screenshots/object-freeze.png" alt="ScreenShot"></p>
+<h1 id="objectsealobject-cho-ph%C3%A9p-ch%E1%BB%89nh-s%E1%BB%ADa-key--value-nh%C6%B0ng-kh%C3%B4ng-%C4%91%C6%B0%E1%BB%A3c-th%C3%AAm-key--value-m%E1%BB%9Bi">Object.seal(object) cho phép chỉnh sửa key &amp; value nhưng không được thêm key &amp; value mới</h1>
+<p><img src="/screenshots/object-seal.png" alt="ScreenShot"></p>
+<h1 id="%C4%91%E1%BB%83-sao-ch%C3%A9p-m%E1%BB%99t-object-d%C3%B9ng-spread-operator-object-ho%E1%BA%B7c-objectassign">Để sao chép một object dùng spread operator {...object} hoặc Object.assign()</h1>
+<h1 id="%C4%91%E1%BB%83-sao-ch%C3%A9p-m%E1%BB%99t-object-clone-nested-ta-d%C3%B9ng-jsonparsejsonstringifyt%C3%AAn-object-th%C3%AC-object-ta-c%C3%B3-th%E1%BB%83-thay-%C4%91%C3%B4i-thu%E1%BB%99c-t%C3%ADnh-m%C3%A0-kh%C3%B4ng-%E1%BA%A3nh-h%C6%B0%E1%BB%9Fng-t%E1%BB%9Bi-object-g%E1%BB%91c">Để sao chép một object clone nested ta dùng JSON.parse(JSON.stringify(tên object)) thì object ta có thể thay đôi thuộc tính mà không ảnh hưởng tới object gốc</h1>
+<p><img src="/screenshots/clone-object-nested.png" alt="ScreenShot"></p>
+<h3 id="optional-chaining--khi-ta-mu%E1%BB%91n-truy-xu%E1%BA%A5t-nhi%E1%BB%81u-keys-l%E1%BB%93ng-nhau-khi-ch%C6%B0a-khai-b%C3%A1o-ta-d%C3%B9ng-n%C3%B3-%C4%91%E1%BB%83-h%E1%BA%A1n-ch%E1%BA%BF-g%C3%A2y-l%E1%BB%97i-khi-ch%C6%B0a-c%C3%B3-key-c%E1%BB%A7a-object-%C4%91%C3%B3">Optional chaining (?) khi ta muốn truy xuất nhiều keys lồng nhau khi chưa khai báo ta dùng nó để hạn chế gây lỗi khi chưa có key của object đó</h3>
+<p><img src="/screenshots/optional-chaining.png" alt="ScreenShot"></p>
+<h3 id="l%C6%B0u-%C3%BD-th%C3%B4ng-th%C6%B0%E1%BB%9Dng-typeof-c%E1%BB%A7a-null-l%C3%A0-object-n%C3%AAn-mu%E1%BB%91n-ki%E1%BB%83m-tra-c%C3%B3-ph%E1%BA%A3i-l%C3%A0-object-kh%C3%B4ng-th%C3%AC-n%C3%AAn-x%C3%A9t-h%E1%BA%BFt-c%C3%A1c-%C4%91i%E1%BB%81u-ki%E1%BB%87n">!Lưu ý: Thông thường typeof của [],{},null là object nên muốn kiểm tra có phải là object không thì nên xét hết các điều kiện</h3>
+<h2 id="%C4%91%E1%BB%83-ki%E1%BB%83m-tra-m%E1%BB%99t-object-c%C3%B3-ch%E1%BB%A9a-keys-n%C3%A0o-%C4%91%C3%B3-hay-kh%C3%B4ng-ta-d%C3%B9ng-objecthasownerpropertykey-n%E1%BA%BFu-c%C3%B3-tr%E1%BA%A3-v%E1%BB%81-true-c%C3%B2n-kh%C3%B4ng-c%C3%B3-th%C3%AC-tr%E1%BA%A3-v%E1%BB%81-false">Để kiểm tra một object có chứa keys nào đó hay không ta dùng (object.hasOwnerProperty(key)) nếu có trả về true, còn không có thì trả về false</h2>
+<h2 id="rest-parameter-rest-khi-n%C3%B3-trong-m%E1%BB%99t-function-th%C3%AC-l%C3%A0-m%E1%BB%99t-array">rest parameter (...rest) khi nó trong một function thì là một array</h2>
+<p>vd: function sum(num1,num2,...rest){
+=&gt; num1 = 1
+=&gt; num2 = 2
+=&gt; rest = [3,4,5,6]
+}
+sum(1,2,3,4,5,6)</p>
+<!-- DOM -->
+<h4 id="queryselectorall-n%C3%B3-c%C3%B3-th%E1%BB%83-d%C3%B9ng-loop-v%C3%A0-ch%E1%BB%89-s%E1%BB%AD-d%C3%B9ng-%C4%91%C6%B0%E1%BB%A3c-foreach">querySelectorAll: nó có thể dùng loop và chỉ sử dùng được forEach !!</h4>
+<p>=&gt; Sẽ trả về một NodeList giống như array</p>
+<h1 id="attribute---thu%E1%BB%99c-t%C3%ADnh--hrefclassidsrcstyle">attribute -&gt; thuộc tính : href,class,id,src,style,...</h1>
+<ul>
+<li>selector.getAttribute(&quot;attribute&quot;) =&gt; Lấy ra giá trị của attribute seletor.</li>
+<li>selector.removeAttribute(&quot;attribute&quot;) ==&gt; Xoá attribute selector</li>
+<li>selector.hasAttribute(&quot;attribute&quot;) =&gt; Kiểm tra xen có attribute hay không, nếu có -&gt; true, không -&gt; false</li>
+</ul>
+<h2 id="node">Node</h2>
+<h1 id="ki%E1%BB%83m-tra-element-c%C3%B3-childnode-hay-kh%C3%B4ng-c%C3%B3---true-kh%C3%B4ng---false">Kiểm tra element có childNode hay không, có -&gt; true, không -&gt; false</h1>
+<p>=&gt; element.hasChildNodes()</p>
+<h1 id="insertadjacenttext">insertAdjacentText</h1>
+<h1 id="elementinsertadjacenttext%22positon%22-%22string%22">element.insertAdjacentText(&quot;positon&quot;, &quot;string&quot;);</h1>
+<ul>
+<li>positon: beforebegin, afterbegin, beforeend,afterend</li>
+<li>string: text</li>
+</ul>
+<p><img src="/screenshots/insertAdjacentText.png" alt="ScreenShot"></p>
+<h1 id="%C4%91%E1%BB%83-xo%C3%A1-node-ra-kh%E1%BB%8Fi-dom-ta-d%C3%B9ng-removechild--khi-mu%E1%BB%91n-xo%C3%A1-m%E1%BB%99t-n%E1%BB%91t-con-ta-t%C3%ACm-l%C3%AAn-ph%E1%BA%A7n-t%E1%BB%AD-cha-r%E1%BB%93i-m%C3%B3i-xo%C3%A1-%C4%91%C6%B0%E1%BB%A3c-node-%C4%91%C3%B3">Để xoá Node ra khỏi DOM ta dùng removeChild =&gt; khi muốn xoá một nốt con ta tìm lên phần tử cha rồi mói xoá được node đó</h1>
+<ul>
+<li>vd: selector.parentNode.removeChild(selector);</li>
+</ul>
+<h1 id="%C4%91%E1%BB%83-l%E1%BA%A5y-%C4%91%C6%B0%E1%BB%A3c-element-cha-ta-d%C3%B9ng">Để lấy đƯợc element cha ta dùng</h1>
+<ul>
+<li>parentNode</li>
+<li>parentElement</li>
+</ul>
+<h1 id="nextelementsibling-ch%E1%BB%8Dn-ph%E1%BA%A7n-t%E1%BB%AB-k%E1%BA%BF-ti%E1%BA%BFp-n%C3%B3">nextElementSibling chọn phần từ kế tiếp nó</h1>
+<p>vd: span.nextElementSibling; =&gt; element span2
+span.previousElementSibling =&gt; element p</p>
+  <h3>
+      <!-- afterbegin -->
+      <p></p>
+      <span class="span">
+        <a href="#">a</a>
+      </span>
+      <span class="span2"></span>
+      <!-- beforeend -->
+    </h3>
+<h1 id="previouselementsibling-ch%E1%BB%8Dn-ph%E1%BA%A7n-t%E1%BB%AB-tr%C6%B0%E1%BB%9Bc-n%C3%B3">previousElementSibling chọn phần từ trước nó</h1>
+<h1 id="childnode-tr%E1%BA%A3-v%E1%BB%81-1-m%E1%BA%A3ng-h%E1%BA%BFt-c%C3%A1c-node-b%C3%AAn-trong-bao-g%E1%BB%93m-textnodes">childNode: trả về 1 mảng hết các node bên trong bao gồm textNodes</h1>
+<h1 id="children-tr%E1%BA%A3-v%E1%BB%81-1-m%E1%BA%A3ng-h%E1%BA%BFt-c%C3%A1c-node-b%C3%AAn-trong-kh%C3%B4ng-bao-g%E1%BB%93m-textnodes">children: trả về 1 mảng hết các node bên trong không bao gồm textNodes</h1>
+<h1 id="firstchild--tr%E1%BA%A3-v%E1%BB%81-element-%C4%91%E1%BA%A7u-ti%C3%AAn-bao-g%E1%BB%93m-textnodes">firstChild : trả về element đầu tiên bao gồm textNodes</h1>
+<h1 id="firstelementchild--tr%E1%BA%A3-v%E1%BB%81-element-%C4%91%E1%BA%A7u-ti%C3%AAn-kh%C3%B4ng-bao-g%E1%BB%93m-textnodes">firstElementChild : trả về element đầu tiên không bao gồm textNodes</h1>
+<h1 id="lastchild--lastelementchild-t%C6%B0%C6%A1ng-t%E1%BB%B1-nh%C6%B0-tr%C3%AAn-nh%C6%B0ng-l%E1%BA%A5y-element-cu%E1%BB%91i-c%C3%B9ng">lastChild &amp; lastElementChild tương tự như trên nhưng lấy element cuối cùng</h1>
+<h2 id="offset-sizing--client">Offset sizing &amp;&amp; client</h2>
+<h1 id="offset">Offset</h1>
+<ul>
+<li>element.offsetWidth =&gt; trả về width của element</li>
+<li>element.offsetHeight =&gt; trả về height của element</li>
+<li>element.offsetLeft =&gt; vị trí của nó so với bên trái</li>
+<li>element.offsetTop =&gt; vị trí của nó so với phía trên</li>
+<li>element.offsetParent =&gt; lấy ra phần tử cha để lấy giá trị của phần tử cha
+<img src="/screenshots/sizing.png" alt="ScreenShot">
+<img src="/screenshots/sizingresult.png" alt="ScreenShot"></li>
+</ul>
+<h1 id="client">Client</h1>
+<ul>
+<li>
+<p>element.clientWidth =&gt; độ rộng của phần tử trừ đi border (2 bên)</p>
+</li>
+<li>
+<p>element.clientHeight =&gt; chiều cao của phần tử trừ đi border (trên dưới)</p>
+</li>
+<li>
+<p>element.clientLeft =&gt; vị trí của nó so với bên trái border (!lấy border-left: )</p>
+</li>
+<li>
+<p>element.clientTop =&gt; vị trí của nó so với bên trên border (!lấy border-top: )</p>
+<p><img src="/screenshots/client.png" alt="ScreenShot"></p>
+</li>
+</ul>
+
+</body>
+</html>
