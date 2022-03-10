@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .form {
+        width: 500px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+      }
+      .form input {
+        border: 1px solid #ccc;
+        display: block;
+        padding: 10px;
+        margin: 0 auto;
+        outline: none;
+        margin-bottom: 20px;
+        width: 100%;
+        border-radius: 8px;
+      }
+      .form i {
+        position: absolute;
+        right: 30px;
+        top: 40%;
+        transform: translateY(-50%);
+        font-size: 18px;
+      }
+      .form button {
+        width: 100%;
+        outline: none;
+        padding: 20px;
+        border: 1px solid #6a5af9;
+        background-color: #6a5af9;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="form">
+      <!-- <input type="text" class="input" placeholder="text" name="username" /> -->
+      <input
+        type="password"
+        class="input_password"
+        placeholder="password"
+        name="password"
+      />
+      <i class="fa fa-eye toggle"></i>
+      <!-- <input type="checkbox" name="hobby" id="" value="badminton" />Badminton
+      <input type="checkbox" name="hobby" id="" value="volleyball" />Volleyball
+      <input type="radio" name="gender" id="" value="male" />Male
+      <input type="radio" name="gender" id="" value="female" />Female -->
+      <!-- <button type="submit">Submit</button> -->
+    </form>
+    <script src="./form.js"></script>
+  </body>
+</html>

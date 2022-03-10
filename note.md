@@ -1,6 +1,19 @@
 <!-- Lưu ý -->
 <!-- 0837393959 -->
 
+### Shortcut
+
+- header && header.classList.add("is-active");
+  ==> if(header){
+  header.classList.add("is-active")
+  }
+
+- document.DocumentElement(thẻ <html></html> )
+
+##Chữ radient
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
 -các template được tạo ra trong DOM vì được sinh ra sau khi DOM đã load xong, khi web load xong rồi DOM add sự kiện không có nên trả về null
 -> Thay vào đó ta bắt sự kiện từ body
 
@@ -242,7 +255,7 @@ span.previousElementSibling => element p
 # Client
 
 - element.clientWidth => độ rộng của phần tử trừ đi border (2 bên)
-- element.clientHeight => chiều cao của phần tử trừ đi border (trên dưới)
+- element.clientHeight => chiều cao của phần tử trừ đi border (trên dưới) (viewport)
 - element.clientLeft => vị trí của nó so với bên trái border (!lấy border-left: )
 - element.clientTop => vị trí của nó so với bên trên border (!lấy border-top: )
 
@@ -338,8 +351,38 @@ element.addEventListener('click',handleClick);
 - mouseover: nó sẽ chạy khi rê chuột vào phần tử hoặc con của phần tử đó (từ trong đó rơi vào thẻ con của nó vẫn tính là 1 lần)
 - mouseenter: nó sẽ chạy khi rê chuột vào phần tử
 - mouseleave: nó sẽ chạy khi rê chuột ra khỏi phần tử
+- wheel: lăn chuột (có e.delta => lăn lên => dương, lăn xuống => âm)
 
 # ClientXY và PageYY lấy toạ độ khi rê chuột
 
 - clientY: Lấy chiều cao theo viewport
-- PageY: lấy chiều cao theo document (thường thì có scroll )
+- PageY: lấy chiều cao theo document (thường thì có scroll nó sẽ khác viewport)
+
+#### Form event
+
+- keydown: Khi nhấn xuống (có preventDefault) (sẽ lấy hết các phím)
+- keyup:Sự kiện xảy ra khi nhấn phím rồi thả ra (khong the dung preventDefault)
+  -keypress: sẽ ignore(không nhận) các phím như home,pgUp,pgDown,Esc,Shift,Delele,Alt,Ctrl,.. (use preventDefault)
+  -> thứ tự ưu tiên keydown -> keypress -> keyup
+  -change: khi giá trị thay đổi và click ra ngoài hoặc nhân enter trong 1 lần
+- focus: khi focus vào ô input sự kiện mới xảy ra
+- blur : khi blur click ra khỏi ô input sự kiện mới xảy ra
+- input: lấy giá trị khi chúng ta gõ
+
+### Scroll
+
+- debounce: là một kĩ thuật buộc một hàm phải đợi một khoảng thời gian nhất định trước khi thực thi.Trong khoảng thời gian đợi, một tác động sẽ điều bị bỏ qua và chỉ nhận duy nhất 1 hành động diễn ra trong thời gian chúng ta định trước.
+- window.pageYOffset: khoảng cách thanh scroll của window theo chiều dọc so với phiếu trên cùng.
+- window.pageXOffset: khoảng cách thanh scroll của window theo chiều ngang so với phiếu bên trái
+  -scrollHeight: trả về chiều cao của element bao gồm paddig (+padding 2 bên), nhưng không có border
+  -scrollWidth: trả về chiều rộng của element bao gồm paddig (+padding 2 bên), nhưng không có border
+
+  - element.scrollTop: trả về thanh scroll so với trên cùng (windown khong dung duoc)
+  - element.scrollLeft: trả về thanh scroll so với bên trái (windown khong dung duoc)
+
+- element.scrollIntoView() : scroll tới phạm vi mà có thể thấy nó (có thể quay lại phần tử đƯợc trỏ tới)
+
+# offsetWidth & scrollWidth (offsetHeight & scrollHeight tương tự)
+
+- offsetWidth -> Lấy ra độ rộng khi chúng ta set nó ban đầu
+- scrollWidth -> Lấy ra độ rộng khi xuất hiện scroll hoặc có phần tử con lớn hơn độ rộng của nó.

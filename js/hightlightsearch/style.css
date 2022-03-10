@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.dropdown {
+  position: relative;
+  width: 500px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 20px auto;
+}
+
+.input_search {
+  width: 100%;
+  display: block;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.dropdown-item {
+  margin-bottom: 20px;
+}
+.primary {
+  color: #6a5af9;
+}
