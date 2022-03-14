@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tab Scrollbar</title>
+    <title>TodoList | LocalStorage</title>
     <link rel="stylesheet" href="../../css/reset.css" />
     <link
       rel="stylesheet"
@@ -16,21 +16,24 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="tab">
-      <i class="fa fa-angle-left icon-left tab-prev disable"></i>
-      <div class="tab-list">
-        <div class="tab-item active">Home</div>
-        <div class="tab-item">Popular</div>
-        <div class="tab-item">Hot</div>
-        <div class="tab-item">Author</div>
-        <div class="tab-item">Blog</div>
-        <div class="tab-item">Lasted post</div>
-        <div class="tab-item">Trending</div>
-        <div class="tab-item">News</div>
-        <div class="tab-item">Idols</div>
+    <div class="todo">
+      <form class="todo-form">
+        <input
+          type="text"
+          name="todo"
+          class="todo-input"
+          placeholder="write some anything"
+          autocomplete="off"
+        />
+        <button type="submit" class="todo-submit">Add</button>
+      </form>
+      <div class="todo-list">
+        <!-- <h3 class="todo-title">Learning english</h3>
+        <i class="fa fa-trash todo-remove"></i>
+        <h3 class="todo-title">Learning english</h3>
+        <i class="fa fa-trash todo-remove"></i> -->
       </div>
-      <i class="fa fa-angle-right icon-right tab-next"></i>
     </div>
-    <script src="./starter.js"></script>
+    <script src="./todolist.js"></script>
   </body>
 </html>

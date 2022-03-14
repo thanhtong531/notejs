@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.sweet-alert {
+  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 450px;
+  display: inline-flex;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  align-items: center;
+  padding: 20px;
+  transform: translateX(150%);
+  transition: all 0.25s linear;
+  animation: sweet 1s linear 1;
+}
+
+.sweet-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #ffa400;
+  border-radius: 50px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+@keyframes sweet {
+  50%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  background-color: green;
+  padding: 20px;
+}

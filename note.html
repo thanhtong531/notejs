@@ -365,6 +365,25 @@ code {
           : 'default'
     });
   </script>
+<!-- Lưu ý -->
+<!-- 0837393959 -->
+<h3 id="shortcut">Shortcut</h3>
+<ul>
+<li>
+<p>header &amp;&amp; header.classList.add(&quot;is-active&quot;);
+==&gt; if(header){
+header.classList.add(&quot;is-active&quot;)
+}</p>
+</li>
+<li>
+<p>document.DocumentElement(thẻ <html></html> )</p>
+</li>
+</ul>
+<p>##Chữ radient
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;</p>
+<p>-các template được tạo ra trong DOM vì được sinh ra sau khi DOM đã load xong, khi web load xong rồi DOM add sự kiện không có nên trả về null
+-&gt; Thay vào đó ta bắt sự kiện từ body</p>
 <!-- Localstorage -->
 <p>-- Khi dung setItem =&gt; gia tri truyen vao phai la string =&gt; dung JSON.stringify
 =&gt; Ex: localStorage.setItem('todo_list',JSON.stringify(todoList));</p>
@@ -495,7 +514,7 @@ sum(1,2,3,4,5,6)</p>
 <h2 id="node">Node</h2>
 <h1 id="ki%E1%BB%83m-tra-element-c%C3%B3-childnode-hay-kh%C3%B4ng-c%C3%B3---true-kh%C3%B4ng---false">Kiểm tra element có childNode hay không, có -&gt; true, không -&gt; false</h1>
 <p>=&gt; element.hasChildNodes()</p>
-<h1 id="insertadjacenttext">insertAdjacentText</h1>
+<h1 id="insertadjacenttextinsertadjacenthtmlinsertadjacentelement">insertAdjacentText,insertAdjacentHTML,insertAdjacentElement</h1>
 <h1 id="elementinsertadjacenttext%22positon%22-%22string%22">element.insertAdjacentText(&quot;positon&quot;, &quot;string&quot;);</h1>
 <ul>
 <li>positon: beforebegin, afterbegin, beforeend,afterend</li>
@@ -532,8 +551,8 @@ span.previousElementSibling =&gt; element p</p>
 <h2 id="offset-sizing--client">Offset sizing &amp;&amp; client</h2>
 <h1 id="offset">Offset</h1>
 <ul>
-<li>element.offsetWidth =&gt; trả về width của element</li>
-<li>element.offsetHeight =&gt; trả về height của element</li>
+<li>element.offsetWidth =&gt; trả về width của element đó</li>
+<li>element.offsetHeight =&gt; trả về height của element đó</li>
 <li>element.offsetLeft =&gt; vị trí của nó so với bên trái</li>
 <li>element.offsetTop =&gt; vị trí của nó so với phía trên</li>
 <li>element.offsetParent =&gt; lấy ra phần tử cha để lấy giá trị của phần tử cha
@@ -546,7 +565,7 @@ span.previousElementSibling =&gt; element p</p>
 <p>element.clientWidth =&gt; độ rộng của phần tử trừ đi border (2 bên)</p>
 </li>
 <li>
-<p>element.clientHeight =&gt; chiều cao của phần tử trừ đi border (trên dưới)</p>
+<p>element.clientHeight =&gt; chiều cao của phần tử trừ đi border (trên dưới) (viewport)</p>
 </li>
 <li>
 <p>element.clientLeft =&gt; vị trí của nó so với bên trái border (!lấy border-left: )</p>
@@ -556,6 +575,138 @@ span.previousElementSibling =&gt; element p</p>
 <p><img src="/screenshots/client.png" alt="ScreenShot"></p>
 </li>
 </ul>
+<h3 id="forin-trong-m%E1%BA%A3ng-th%C3%AC-l%E1%BA%A5y-ra-index-c%E1%BB%A7a-t%E1%BB%ABng-ph%E1%BA%A7n-t%E1%BB%AD-trong-m%E1%BA%A3ng">For...in trong mảng thì lấy ra index của từng phần tử trong mảng</h3>
+<h2 id="windowinnerwidthwindowouterwidthwindowinnerhegihtwindowouterheight">window.innerWidth,window.outerWidth,window.innerHegiht,window.outerHeight</h2>
+<ul>
+<li>
+<p>inner là lấy vị trí của khung nhỏ (width | height)</p>
+</li>
+<li>
+<p>outer là lấy toàn khung màn hình (width | height)</p>
+<p><img src="/screenshots/window.png" alt="ScreenShot"></p>
+</li>
+</ul>
+<h2 id="selectorgetboundingclientrect---l%E1%BA%A5y-ra-k%C3%ADch-th%C6%B0%E1%BB%9Bc-to%E1%BA%A1-%C4%91%E1%BB%99-c%E1%BB%A7a-ph%E1%BA%A7n-t%E1%BB%AD">selector.getBoundingClientRect() -&gt; Lấy ra kích thước toạ độ của phần tử</h2>
+<ul>
+<li>left,x: lấy vị trí của khối so với bên trái</li>
+<li>top: vị trí của khối so vớI bên trên</li>
+<li>bottom: chiều cao của khối + top</li>
+<li>right: độ rộng của khối + left</li>
+<li>width: độ rộng của khối</li>
+<li>height: chiều cao</li>
+</ul>
+<h4 id="htmlcollection--nodelist">HTMLCollection &amp;&amp; NodeList</h4>
+<ul>
+<li>
+<p>Điểm giống: có thể truy cập bằng index, có độ dài length, giống mảng nhưng không hẳn là mảng tức không thể sử dụng các phương thức của mảng như push,map,shift,filter</p>
+</li>
+<li>
+<p>HTMLCollection: không thể sử dụng forEach</p>
+</li>
+<li>
+<p>NodeList : Sử dụng được forEach</p>
+</li>
+</ul>
+<h1 id="c%C3%B3-2-c%C3%A1ch-convert-htmlcollection--nodelistphi%C3%AAn-b%E1%BA%A3n-th%E1%BA%A5p-to-array--sau-%C4%91%C3%B3-n%C3%B3-c%C3%B3-th%E1%BB%83-d%C3%B9ng-foreach-filter">Có 2 cách convert HTMLCollection &amp;&amp; NodeList(phiên bản thấp) to array =&gt; sau đó nó có thể dùng forEach, filter,...</h1>
+<p>-&gt; Array.from(HTMLCollection,NodeList)
+-&gt; [...HTMLCollection,...NodeList] =&gt; operator</p>
+<h4 id="parentnode--parentelement">ParentNode &amp;&amp; ParentElement</h4>
+<ul>
+<li>parentElement: có thể null</li>
+<li>parentNode: nó lấy thẻ hiện tại của nó nếu nó không có cha lớn nhất bao ngoài</li>
+</ul>
+<h1 id="insertbefore">insertBefore</h1>
+<p>-&gt; parentNode.insertBefore(newnode,existingnode) =&gt; đưa element newnode lên trên element existingnode đã tồn tại.</p>
+<h1 id="replacechildnewnodeoldnode">replaceChild(newnode,oldnode)</h1>
+<p>-&gt; node.replaceChild(newnode,oldnode)</p>
+<h2 id="l%C6%B0u-%C3%BD">Lưu ý</h2>
+<ul>
+<li>Lỗi sai khi dùng function trong eventlistener</li>
+</ul>
+<p>//Sai vì khi chưa click vào mà function đã involk nên dẫn đến sai sự kiện
+element.addEventListener('click',handleClick())
+// Đúng
+element.addEventListener('click',handleClick);</p>
+<h1 id="bubbling">Bubbling</h1>
+<ul>
+<li>Bắt sự kiện từ trong ra ngoài (từ thẻ click đến thẻ bên ngoài)
+// Lúc này chỉ có span chạy vì đã chặn sự nổi bọt lên các phần tử cha
+// e.stopPropagation();
+// Nó chỉ chặn 1 sự kiện click , nếu phần tử có thêm một sự kiện thì nó sẽ chạy 2 sự kiện muốn chặn 1 sự kiện ta dùng stopImmediatePropagation();</li>
+</ul>
+<h1 id="capturing">Capturing</h1>
+<ul>
+<li>Bắt sự kiện từ ngoài vào trong</li>
+<li>Chuyền vào parameter là một object có key(capture: true) default: false; nếu không truyền thì nó sẽ bị bubbling
+// span.addEventListener(
+&quot;click&quot;,
+function (e) {
+console.log(&quot;span click 2&quot;);
+},
+{
+capture: true,
+}
+);
+<img src="/screenshots/e.target.png" alt="ScreenShot"></li>
+</ul>
+<h1 id="h3-%C4%91%E1%BB%83-random-c%C3%A1c-ph%E1%BA%A7n-t%E1%BB%AD-trong-m%E1%BB%99t-m%E1%BA%A3ng-ta-d%C3%B9ng-arrmathfloormathrandom--arrlength">h3 Để random các phần tử trong một mảng ta dùng arr[Math.floor(Math.random() * arr.length)]</h1>
+<h1 id="eventtarget-nh%C6%B0-m%E1%BB%99t-element-c%E1%BB%A7a-n%C3%B3--this-trong-funtion-ph%E1%BA%A7n-t%E1%BB%AD-cha">event.target như một element của nó = this trong funtion (phần tử cha)</h1>
+<h1 id="h2-toggle-c%E1%BB%A7a-classlist-khi-m%E1%BB%99t-class-%C4%91%C3%A3-c%C3%B3-r%E1%BB%93i-th%C3%AC-click-v%C3%A0o-n%C3%B3-s%E1%BA%BD-xo%C3%A1-v%C3%A0-khi-nh%E1%BA%A5n-m%E1%BB%99t-l%E1%BA%A7n-n%E1%BB%AFa-th%C3%AC-n%C3%B3-s%E1%BA%BD-%C4%91%C6%B0%E1%BB%A3c-th%C3%AAm-v%C3%A0o">h2 Toggle của classList: khi một class đã có rồi thì click vào nó sẽ xoá và khi nhấn một lần nữa thì nó sẽ được thêm vào</h1>
+<h1 id="h2-selectorcontains-ki%E1%BB%83m-tra-element-ho%E1%BA%B7c-classname-c%C3%B3-ch%E1%BB%A9a-element-kh%C3%A1c-hay-kh%C3%B4ng">h2 selector.contains(): kiểm tra element hoặc className có chứa element khác hay không</h1>
+<h1 id="etargetmatches%22classname%22-ki%E1%BB%83m-tra-c%C3%B3-tr%C3%B9ng-v%E1%BB%9Bi-classname-hay-kh%C3%B4ng">e.target.matches(&quot;.className&quot;): kiểm tra có trùng với className hay không</h1>
+<h2 id="event-mouse">Event mouse</h2>
+<ul>
+<li>mousemove: khi di chuyển chuột trên phần tử đó</li>
+<li>mouseover: nó sẽ chạy khi rê chuột vào phần tử hoặc con của phần tử đó (từ trong đó rơi vào thẻ con của nó vẫn tính là 1 lần)</li>
+<li>mouseenter: nó sẽ chạy khi rê chuột vào phần tử</li>
+<li>mouseleave: nó sẽ chạy khi rê chuột ra khỏi phần tử</li>
+<li>wheel: lăn chuột (có e.delta =&gt; lăn lên =&gt; dương, lăn xuống =&gt; âm)</li>
+</ul>
+<h1 id="clientxy-v%C3%A0-pageyy-l%E1%BA%A5y-to%E1%BA%A1-%C4%91%E1%BB%99-khi-r%C3%AA-chu%E1%BB%99t">ClientXY và PageYY lấy toạ độ khi rê chuột</h1>
+<ul>
+<li>clientY: Lấy chiều cao theo viewport</li>
+<li>PageY: lấy chiều cao theo document (thường thì có scroll nó sẽ khác viewport)</li>
+</ul>
+<h4 id="form-event">Form event</h4>
+<ul>
+<li>keydown: Khi nhấn xuống (có preventDefault) (sẽ lấy hết các phím)</li>
+<li>keyup:Sự kiện xảy ra khi nhấn phím rồi thả ra (khong the dung preventDefault)
+-keypress: sẽ ignore(không nhận) các phím như home,pgUp,pgDown,Esc,Shift,Delele,Alt,Ctrl,.. (use preventDefault)
+-&gt; thứ tự ưu tiên keydown -&gt; keypress -&gt; keyup
+-change: khi giá trị thay đổi và click ra ngoài hoặc nhân enter trong 1 lần</li>
+<li>focus: khi focus vào ô input sự kiện mới xảy ra</li>
+<li>blur : khi blur click ra khỏi ô input sự kiện mới xảy ra</li>
+<li>input: lấy giá trị khi chúng ta gõ</li>
+</ul>
+<h3 id="scroll">Scroll</h3>
+<ul>
+<li>
+<p>debounce: là một kĩ thuật buộc một hàm phải đợi một khoảng thời gian nhất định trước khi thực thi.Trong khoảng thời gian đợi, một tác động sẽ điều bị bỏ qua và chỉ nhận duy nhất 1 hành động diễn ra trong thời gian chúng ta định trước.</p>
+</li>
+<li>
+<p>window.pageYOffset: khoảng cách thanh scroll của window theo chiều dọc so với phiếu trên cùng.</p>
+</li>
+<li>
+<p>window.pageXOffset: khoảng cách thanh scroll của window theo chiều ngang so với phiếu bên trái
+-scrollHeight: trả về chiều cao của element bao gồm paddig (+padding 2 bên), nhưng không có border
+-scrollWidth: trả về chiều rộng của element bao gồm paddig (+padding 2 bên), nhưng không có border</p>
+<ul>
+<li>element.scrollTop: trả về thanh scroll so với trên cùng (windown khong dung duoc) (tựa như pageYOffset)</li>
+<li>element.scrollLeft: trả về thanh scroll so với bên trái (windown khong dung duoc) (tựa như pageXOffset)</li>
+</ul>
+</li>
+<li>
+<p>element.scrollIntoView() : scroll tới phạm vi mà có thể thấy nó (có thể quay lại phần tử đƯợc trỏ tới)</p>
+</li>
+</ul>
+<p>-&gt; https://s1.o7planning.com/vi/12397/images/41666223.png</p>
+<h1 id="offsetwidth--scrollwidth-offsetheight--scrollheight-t%C6%B0%C6%A1ng-t%E1%BB%B1">offsetWidth &amp; scrollWidth (offsetHeight &amp; scrollHeight tương tự)</h1>
+<ul>
+<li>offsetWidth -&gt; Lấy ra độ rộng khi chúng ta set nó ban đầu</li>
+<li>scrollWidth -&gt; Lấy ra độ rộng khi xuất hiện scroll hoặc có phần tử con lớn hơn độ rộng của nó.</li>
+</ul>
+<h2 id="%C4%91%E1%BB%83-t%C3%ADnh-%C4%91%E1%BB%99-d%C3%A0i-th%E1%BB%B1c-s%E1%BB%B1-c%E1%BB%A7a-scroll-ta-l%E1%BA%A5y-chi%E1%BB%81u-cao-c%E1%BB%A7a-scrollscrollheight--scrollwidth---chi%E1%BB%81u-cao-c%E1%BB%A7a-viewport-height-clienheight-or-offsetheight--clientwidth-or-offsetwidth">Để tính độ dài thực sự của scroll: ta lấy chiều cao của scroll(scrollHeight / scrollWidth) - chiều cao của viewport height (clienHeight or offsetHeight / clientWidth or offsetWidth)</h2>
+<h1 id="c%C3%A1ch-l%E1%BA%A5y-c%C3%A1c-th%E1%BA%BB-input-nhanh-b%E1%BA%B1ng-c%C3%A1ch-g%E1%BB%8Di-formelements%22name-c%E1%BB%A7a-input%22">Cách lấy các thẻ input nhanh bằng cách gọi form.elements[&quot;name của input&quot;]</h1>
 
 </body>
 </html>

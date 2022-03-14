@@ -377,12 +377,18 @@ element.addEventListener('click',handleClick);
   -scrollHeight: trả về chiều cao của element bao gồm paddig (+padding 2 bên), nhưng không có border
   -scrollWidth: trả về chiều rộng của element bao gồm paddig (+padding 2 bên), nhưng không có border
 
-  - element.scrollTop: trả về thanh scroll so với trên cùng (windown khong dung duoc)
-  - element.scrollLeft: trả về thanh scroll so với bên trái (windown khong dung duoc)
+  - element.scrollTop: trả về thanh scroll so với trên cùng (windown khong dung duoc) (tựa như pageYOffset)
+  - element.scrollLeft: trả về thanh scroll so với bên trái (windown khong dung duoc) (tựa như pageXOffset)
 
 - element.scrollIntoView() : scroll tới phạm vi mà có thể thấy nó (có thể quay lại phần tử đƯợc trỏ tới)
+
+-> https://s1.o7planning.com/vi/12397/images/41666223.png
 
 # offsetWidth & scrollWidth (offsetHeight & scrollHeight tương tự)
 
 - offsetWidth -> Lấy ra độ rộng khi chúng ta set nó ban đầu
 - scrollWidth -> Lấy ra độ rộng khi xuất hiện scroll hoặc có phần tử con lớn hơn độ rộng của nó.
+
+## Để tính độ dài thực sự của scroll: ta lấy chiều cao của scroll(scrollHeight / scrollWidth) - chiều cao của viewport height (clienHeight or offsetHeight / clientWidth or offsetWidth)
+
+# Cách lấy các thẻ input nhanh bằng cách gọi form.elements["name của input"]

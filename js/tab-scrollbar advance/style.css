@@ -49,11 +49,17 @@
   align-items: center;
   border-radius: 50%;
   color: #fff;
+  transition: all 0.2s ease;
 }
 
 .icon-left {
-  left: -30px;
+  left: -50px;
 }
 .icon-right {
-  right: -30px;
+  right: -50px;
+}
+
+i.disable {
+  opacity: 0;
+  visibility: hidden;
 }
