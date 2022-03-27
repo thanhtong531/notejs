@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-  const links = document.querySelectorAll(".menu-link");
+  const links = document.querySelectorAll(".menu-item");
   [...links].forEach((item) =>
     item.addEventListener("mouseenter", handleHoverLink)
   );

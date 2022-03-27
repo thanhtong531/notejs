@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
       todo.parentNode.removeChild(todo);
       // Remove todo in localstorage
       const todoText = e.target.previousElementSibling.textContent;
-      const newTodo = todos.filter((value) => value !== todoText);
+      const newTodo = todos.filter((item) => item !== todoText);
       localStorage.setItem("todo_list", JSON.stringify(newTodo));
     }
   });

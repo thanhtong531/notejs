@@ -16,7 +16,7 @@ items.forEach((item) => {
 });
 
 document.addEventListener("click", function (e) {
-  //   console.log(e.target);
+  console.log(e.target);
   if (!dropdown.contains(e.target)) {
     dropdownList.classList.remove("show");
   }

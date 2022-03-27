@@ -1,0 +1,17 @@
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.container img {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  transform: scale(0);
+}
+.container img.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}

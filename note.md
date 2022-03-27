@@ -1,5 +1,7 @@
 <!-- Lưu ý -->
-<!-- 0837393959 -->
+<!-- 0837393959 thầy Quyền -->
+
+# Khi nhấn một click next hoặc prev thì nhớ kiểm tra index, xong tăng hoặc giảm (xong kiểm tra )
 
 ### Shortcut
 
@@ -7,6 +9,21 @@
   ==> if(header){
   header.classList.add("is-active")
   }
+
+### Optional chaining (?) khi ta muốn truy xuất nhiều keys lồng nhau khi chưa khai báo ta dùng nó để hạn chế gây lỗi khi chưa có key của object đó (Lession 103) => undefine nếu chưa khai báo thay vì báo lỗi
+
+```
+  const student = {
+    age:20,
+    love: true,
+    fullname: {
+      name:"Thanh Tong"
+    }
+  }
+
+console.log(student.fullname1?.girl); // undefined. nếu có fullname1 mới làm tiếp vế sau
+console.log(student.fullname1.girl); // Cannot read properties of undefined (reading 'girl') => undefined.girl nên lỗi
+```
 
 - document.DocumentElement(thẻ <html></html> )
 
@@ -85,7 +102,7 @@ hello2("Clousure");
 - splice(startIdx,countDelete);
 - splice(startIdx,countDelete,item1,item2,itemN); //item1,item2,itemN là những giá trị sẽ thay thế
 
-  ![ScreenShot](/screenshots/splice.png)
+  ![alt](./screenshots/splice.png)
 
 # Sort
 
@@ -105,7 +122,7 @@ if(a<b) return -1; // Giảm dần
 
 # Để so sánh 2 mảng [array] ta dùng JSON.stringify để so sánh 2 mảng đó
 
-![ScreenShot](/screenshots/code.png)
+![alt](./screenshots/code.png)
 
 ## 2 cách sao chép mảng (clone) : dùng slice & spread operator: [...tenmang]
 
@@ -117,7 +134,7 @@ if(a<b) return -1; // Giảm dần
 
 -> vd: flat(1) -> làm phẳng 1 mảng con
 
-![ScreenShot](/screenshots/destructuring.png)
+![alt](./screenshots/destructuring.png)
 
 ## Các giá trị falsy là : 0,undefine,null,NaN,"",false;
 
@@ -140,29 +157,27 @@ const student = {name:'Tong Nguyen',age:22,love:true,isDeveloper:true,hi: functi
 
 # Object.entries: trả về một mảng nested array [["name"],["Tong Nguyen"]] gồm có các cặp key và value
 
-![ScreenShot](/screenshots/object-entries.png)
+![alt](./screenshots/object-entries.png)
 
 # Object.assign() dùng để gộp nhiều object lại với nhau
 
-![ScreenShot](/screenshots/object-assign.png)
+![alt](./screenshots/object-assign.png)
 
 # Object.freeze(object) dùng để đóng băng key và value của object không thể thêm key và value mới vào object đã đóng băng
 
-![ScreenShot](/screenshots/object-freeze.png)
+![alt](./screenshots/object-freeze.png)
 
 # Object.seal(object) cho phép chỉnh sửa key & value nhưng không được thêm key & value mới
 
-![ScreenShot](/screenshots/object-seal.png)
+![alt](./screenshots/object-seal.png)
 
 # Để sao chép một object dùng spread operator {...object} hoặc Object.assign()
 
 # Để sao chép một object clone nested ta dùng JSON.parse(JSON.stringify(tên object)) thì object ta có thể thay đôi thuộc tính mà không ảnh hưởng tới object gốc
 
-![ScreenShot](/screenshots/clone-object-nested.png)
+![alt](./screenshots/clone-object-nested.png)
 
-### Optional chaining (?) khi ta muốn truy xuất nhiều keys lồng nhau khi chưa khai báo ta dùng nó để hạn chế gây lỗi khi chưa có key của object đó
-
-![ScreenShot](/screenshots/optional-chaining.png)
+![alt](./screenshots/optional-chaining.png)
 
 ### !Lưu ý: Thông thường typeof của [],{},null là object nên muốn kiểm tra có phải là object không thì nên xét hết các điều kiện
 
@@ -202,7 +217,7 @@ sum(1,2,3,4,5,6)
 - positon: beforebegin, afterbegin, beforeend,afterend
 - string: text
 
-![ScreenShot](/screenshots/insertAdjacentText.png)
+![alt](./screenshots/insertAdjacentText.png)
 
 # Để xoá Node ra khỏi DOM ta dùng removeChild => khi muốn xoá một nốt con ta tìm lên phần tử cha rồi mói xoá được node đó
 
@@ -247,10 +262,10 @@ span.previousElementSibling => element p
 - element.offsetWidth => trả về width của element đó
 - element.offsetHeight => trả về height của element đó
 - element.offsetLeft => vị trí của nó so với bên trái
-- element.offsetTop => vị trí của nó so với phía trên
+- element.offsetTop => vị trí của nó so với phía trên cùng
 - element.offsetParent => lấy ra phần tử cha để lấy giá trị của phần tử cha
-  ![ScreenShot](/screenshots/sizing.png)
-  ![ScreenShot](/screenshots/sizingresult.png)
+  ![alt](./screenshots/sizing.png)
+  ![alt](./screenshots/sizingresult.png)
 
 # Client
 
@@ -259,7 +274,7 @@ span.previousElementSibling => element p
 - element.clientLeft => vị trí của nó so với bên trái border (!lấy border-left: )
 - element.clientTop => vị trí của nó so với bên trên border (!lấy border-top: )
 
-  ![ScreenShot](/screenshots/client.png)
+  ![alt](./screenshots/client.png)
 
 ### For...in trong mảng thì lấy ra index của từng phần tử trong mảng
 
@@ -268,9 +283,9 @@ span.previousElementSibling => element p
 - inner là lấy vị trí của khung nhỏ (width | height)
 - outer là lấy toàn khung màn hình (width | height)
 
-  ![ScreenShot](/screenshots/window.png)
+  ![alt](./screenshots/window.png)
 
-## selector.getBoundingClientRect() -> Lấy ra kích thước toạ độ của phần tử
+## selector.getBoundingClientRect() -> Lấy ra kích thước toạ độ {left,width,height,top} của phần tử
 
 - left,x: lấy vị trí của khối so với bên trái
 - top: vị trí của khối so vớI bên trên
@@ -315,7 +330,7 @@ element.addEventListener('click',handleClick);
 
 # Bubbling
 
-- Bắt sự kiện từ trong ra ngoài (từ thẻ click đến thẻ bên ngoài)
+- Bắt sự kiện từ trong ra ngoài (từ thẻ click con đến thẻ cha bên ngoài)
   // Lúc này chỉ có span chạy vì đã chặn sự nổi bọt lên các phần tử cha
   // e.stopPropagation();
   // Nó chỉ chặn 1 sự kiện click , nếu phần tử có thêm một sự kiện thì nó sẽ chạy 2 sự kiện muốn chặn 1 sự kiện ta dùng stopImmediatePropagation();
@@ -333,7 +348,12 @@ element.addEventListener('click',handleClick);
   capture: true,
   }
   );
-  ![ScreenShot](/screenshots/e.target.png)
+  ![alt](./screenshots/e.target.png)
+
+## Sự khác nhau giữa e.target && e.currentTarget
+
+-> e.target: sẽ chọn chính xác element mà mình click tới
+-> e.currentTarget: nó sẽ chọn phần tử mà mình click (hoặc gắn sự kiện)
 
 # h3 Để random các phần tử trong một mảng ta dùng arr[Math.floor(Math.random() \* arr.length)]
 
@@ -353,10 +373,14 @@ element.addEventListener('click',handleClick);
 - mouseleave: nó sẽ chạy khi rê chuột ra khỏi phần tử
 - wheel: lăn chuột (có e.delta => lăn lên => dương, lăn xuống => âm)
 
+# Unset trong css để đưa giá trị đó về mặc định ban đầu
+
+-> max-width: unset (lúc đầu phải set cho nó một giá trị)
+
 # ClientXY và PageYY lấy toạ độ khi rê chuột
 
-- clientY: Lấy chiều cao theo viewport
-- PageY: lấy chiều cao theo document (thường thì có scroll nó sẽ khác viewport)
+- clientY: Lấy toạ độ (chiều cao) theo viewport
+- PageY: lấy theo toạ độ (chiều cao) theo document (thường thì có scroll nó sẽ khác viewport)
 
 #### Form event
 
@@ -382,7 +406,7 @@ element.addEventListener('click',handleClick);
 
 - element.scrollIntoView() : scroll tới phạm vi mà có thể thấy nó (có thể quay lại phần tử đƯợc trỏ tới)
 
--> https://s1.o7planning.com/vi/12397/images/41666223.png
+[title] (https://s1.o7planning.com/vi/12397/images/41666223.png)
 
 # offsetWidth & scrollWidth (offsetHeight & scrollHeight tương tự)
 
@@ -391,4 +415,249 @@ element.addEventListener('click',handleClick);
 
 ## Để tính độ dài thực sự của scroll: ta lấy chiều cao của scroll(scrollHeight / scrollWidth) - chiều cao của viewport height (clienHeight or offsetHeight / clientWidth or offsetWidth)
 
-# Cách lấy các thẻ input nhanh bằng cách gọi form.elements["name của input"]
+# Cách lấy các thẻ input nhanh bằng cách gọi form.elements["name của input"].value;
+
+<!-- ```html
+<p>Thanh Tong</p>
+``` -->
+
+#### Regex
+
+1. Regex.test(value) -> return true or false;
+
+-2. Anchor
+-> ^ là bắt đầu với kí tự => true or false;
+-> $ là kết thúc với kí tự => true or false;
+
+```html
+console.log(/^hi/.test("hi 3")); // true console.log(/^hi/.test("hello 3
+hi"));//false console.log(/hi$/.test("hello 3 hi")); //true
+console.log(/hi$/.test("hello 3 hihi3")); //false
+```
+
+![alt](./screenshots/regex.png)
+
+3.Range []
+
+- [a-z]: là các từ a - z in thường
+- [A-Z]:là các từ A - Z in HOA
+- [0-9]: là các số từ 0 -> 9
+
+# Dấu mũ nằm trong range [] là phủ định: [^] không trong khoảng
+
+```
+  /[^a-z]/.test("a") // false
+```
+
+4. Meta character
+   ![alt](./screenshots/meta-character.png)
+
+5. Quantifiers
+   ![alt](./screenshots/quantifiers.png)
+
+6. Group ()
+
+```
+// có thể group nhiều regex lại với nhau và đặt thêm quantifier cho group
+console.log(/(\d{3})(\w+)/.test("123")); // false
+console.log(/(\d{3})(\w+)/.test("123abc")); //true
+console.log(/(\d{3})?(\w+)/.test("123")); //true
+```
+
+7. Escaping (các kí tư đặc biệt \ \* $ ^ () {} + | . [])
+
+- Để chèn các kí tự đặc biệt ta dùng dấu <strong>\</strong>
+  -> /\?/.test("?");
+
+  8.Boundaries \b \B
+
+```
+- \b: Có nghĩa là từ đó đứng riêng lẻ độc lập một mình ở mọi vị trí
+-> "My name is Tong".match(/\bTong/g) //["Tong"]
+- \B: Có nghĩa là một cặp từ nếu không có cặp từ (đứng trước nó) thì trả về null
+"My name is TongNguyen".match(/\BTong/g) // null
+"My name isTongNguyen".match(/\BTong/g) // ["Tong"]
+
+```
+
+[title](https://hocjavascript.net/tong-quan/regular-expression-trong-javascript/#B)
+
+10. Sử dụng replace với regex
+
+```
+    const str = "Hello world hello";
+    str.replace(/hello/gi, "Tong") // Tong world Tong
+```
+
+```
+<!-- Sự khác nhau giữa onclick & addEventListener -->
+
+- onclick: Chấp nhận 1 event handler
+- addEventListener: Chấp nhận nhiều event handler cùng lúc.
+- Tham số thứ 3 của addEventListener("click",handleClick,{once:true})
++ once: event chỉ chạy một lần duy nhất
++ capture: Chạy từ ngoài vào trong
+```
+
+## Chương II: Advance
+
+1. Cách chuyển đổi dữ liệu
+
+```
+  const str = "123";
+  const num = +str; => 123
+  const bool = !!str; => true
+  const emptystr = "";
+  const boolstr = !!emptystr; => false;
+```
+
+- Chuyển sang number bằng cách sử dụng dấu '+'
+- Chuyển sang boolean bằng cách dùng dấu '!!'
+
+  2.Lưu ý khi dùng function với return
+
+```
+<!-- Trả về undefined vì khi return nó sẽ tự thêm dấu; vào sau return -->
+function total(x,y){
+  return
+  x+y
+}
+```
+
+3. Sư khác nhau giữa i++ và ++i
+
+```
+- i++: ráng giá trị i rồi mới tăng
+- ++i: tăng giá trị i rồi mới gán
+
+-- i++
+let i = 1;
+let j = i++;
+console.log(i,j); // ráng j = 1 sau đó tăng i lên => i = 2, j = 1
+
+-- ++i
+let a = 1;
+let b = ++a;
+console.log(a,b); // tăng a lên = 2 sau đó ráng b = a => a = 2; b = 2;
+
+```
+
+4. arguments trong function
+
+- Để kiểm tra giá trị có truyền vào hay chưa.
+
+```
+function number(a,b,c){
+  <!-- check -->
+  if(!arguments.length) console.log("Please enter your arguments");
+  return a + b +c;
+}
+
+number() // =>"Please enter your arguments"
+```
+
+5. clousure in loop trong một function
+
+- vòng lặp mà khai báo biến var thì var sẽ bị hoisting nó sẽ lấy giá trị cuối cùng nó sẽ trả về giá trị cuối cùng , scope của var sau mỗi vòng lặp thì nó không thay đổi
+
+```
+for (var i = 1; i < 5; i++) {
+  setTimeout(() => {
+    console.log(i);
+  });
+}
+=> 5,5,5,5
+```
+
+- let thì không bị hoisting và scope của let thay đổi sau mỗi vòng lặp.
+  for (let i = 1; i < 5; i++) {
+  setTimeout(() => {
+  console.log(i);
+  });
+  }
+  => 1,2,3,4
+
+6. Sự khác nhau giữa localStorage && sessionStorage
+
+- localStorage: lưu trữ trên web khi reload vẫn còn, đóng tab hoặc trình duyệt vẫn còn
+- sessionStorage: lưu trữ trên web khi reload vẫn còn, đóng tab hoặc trình duyệt sẽ mất
+
+7. Những trường hợp không nên dùng arrow function
+
+- Khi dùng arrow function trong function thì không thể dùng <b>this</b> được
+- Trong object thì cũng không dùng <b>this</b> chỉ tới thằng cha đƯợc
+
+8. Set
+
+```
+/ const mySet = new Set();
+ mySet.add(1);
+ mySet.add("Thanh Tong");
+ console.log(mySet); //{ 1,"Thanh Tong"}
+ console.log(mySet.has(1)); //true
+ mySet.delete(1);
+ console.log(mySet); //{ "Thanh Tong"}
+ // Xoá tất cả
+ mySet.clear();
+ console.log(mySet); //{}
+
+const arr = [2, 1, 3, 5, 6, 2, 4, 1, 5, 1, 1, 1, 4, 2, 4];
+
+// Dùng set để tạo ra một giá trị object unique
+
+const arr2 = new Set(arr);
+console.log(arr2); //Set(6) { 2, 1, 3, 5, 6, 4 } => object
+
+// Convert set to array
+const newArr = Array.from(arr2); //[ 2, 1, 3, 5, 6, 4 ]
+const newArr = [...arr2]; //[ 2, 1, 3, 5, 6, 4 ]
+```
+
+9.BOM
+9.1 Location
+
+```js
+// BOM
+
+// 1. Location
+// console.log(window.location);
+// console.log(location);
+// http://127.0.0.1:5500/js/other.html?type=demo&page=2#title
+// Lấy ra giá trị cần tìm trên thanh params
+// Lấy ra được => type=demo&page=2
+const params = new URLSearchParams(location.search);
+// console.log(params.get("type"));
+console.log(params.get("type"));
+console.log(params.set("page", 10));
+console.log(params.get("page")); //10 vì đã set ở trên
+console.log(params.has("type")); //true
+// console.log(params.delete("type"));
+// console.log(params.get("type")); // null
+
+// Để lấy key hoặc giá trị ta dùng for...of
+
+for (let it of params.keys()) {
+  console.log(it);
+}
+
+// Điều hướng
+// setTimeout(() => {
+//   location.href = "https://Hihi.com";
+// });
+```
+
+9.2. History
+
+```js
+history.back(); // Quay lại trang trước đó <-
+history.forward(); //Kế trang kế tiếp ->
+history.go(); // Di chuyển tới trang: -1 => trang trước đó <-
+```
+
+9.3 Navigator (Kiểm tra thiết bị đăng nhập)
+
+Systax:
+
+```js
+navigator.userAgent;
+```

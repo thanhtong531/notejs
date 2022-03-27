@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(to right, #f62682, #2cccff);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul {
+  list-style: none;
+}
+
+.countdown {
+  width: 100%;
+  background-color: #fff;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  border-radius: 4px;
+}
+.countdown li {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.number {
+  font-size: 80px;
+  color: #6a5af9;
+  margin-bottom: 10px;
+}
+.text {
+  font-size: 30px;
+  font-weight: 300;
+}

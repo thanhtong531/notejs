@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
   function handleTabClick(e) {
     [...tabItem].forEach((item) => item.classList.remove("active"));
     e.target.classList.add("active");
-    const leftSpacing = e.target.offsetLeft - tab.offsetLeft;
-    tabList.scroll(leftSpacing / 2, 0);
+    const leftSpacing = e.target.offsetLeft;
+    tabList.scroll(leftSpacing / 3, 0);
   }
 });

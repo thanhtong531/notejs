@@ -10,6 +10,7 @@ window.addEventListener("load", function () {
     console.log(filter);
     [...items].forEach((item) => {
       const text = item.textContent;
+      // Lấy vị trí chữ cái đầu của ô input
       const index = text.toLowerCase().indexOf(filter);
       if (index >= 0 && text.toLowerCase().includes(filter)) {
         item.innerHTML = `
